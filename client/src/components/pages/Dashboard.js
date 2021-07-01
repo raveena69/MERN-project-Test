@@ -58,9 +58,18 @@ class Dashboard extends Component {
                                 <div className="col-sm-3 p-sm-2">
                                     <div className="card bg-primary text-white shadow-lg">
                                         <div className="card-body">
-                                            <h5 className="card-title">Users</h5>
-                                            <p className="card-text">Check the registered Users.</p>
-                                            <Link to="/users" className="btn btn-light"><FontAwesomeIcon className="text-primary" icon={faUserAlt}/> Go to Users</Link>
+                                            <h5 className="card-title">Researcher</h5>
+                                            <p className="card-text">Check the registered Researchers.</p>
+                                            <Link to="/users" className="btn btn-light"><FontAwesomeIcon className="text-primary" icon={faUserAlt}/> Go to Researchers</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-3 p-sm-2">
+                                    <div className="card bg-primary text-white shadow-lg">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Conference Details</h5>
+                                            <p className="card-text">Check the Conference Details.</p>
+                                            <Link to="/conferences" className="btn btn-light"><FontAwesomeIcon className="text-primary" icon={faUserAlt}/> Go to Conference Details</Link>
                                         </div>
                                     </div>
                                 </div>
