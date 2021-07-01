@@ -19,6 +19,7 @@ class EditorUpdateModal extends React.Component {
             lastName: this.props.record.lastName,
             email: this.props.record.email,
             username: this.props.record.username,
+            password: '',
             errors: {},
         };
     }

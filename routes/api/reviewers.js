@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const validateRegisterInput = require('../../validation/register');
+const validateRegisterInput = require('../../validation/AddReviewer');
 const validateUpdateUserInput = require('../../validation/updateReviewer');
 const User = require('../../models/Reviewer');
 
@@ -60,16 +60,16 @@ router.post('/user-update', (req, res) => {
     const _id = req.body._id;
     User.findOne({ _id }).then(user => {
         if (user) {
-            if (req.body.password !== '') {
-                bcrypt.genSalt(10, (err, salt) => {
-                    bcrypt.hash(req.body.password, salt, (err, hash) => {
-                        if (err) throw err;
-                        user.password = hash;
-                    });
-                });
-            }
+            // if (req.body.password !== '') {
+            //     bcrypt.genSalt(10, (err, salt) => {
+            //         bcrypt.hash(req.body.password, salt, (err, hash) => {
+            //             if (err) throw err;
+            //             user.password = hash;
+            //         });
+            //     });
+            // }
             let update = {'firstName': req.body.firstName, 'lastName': req.body.lastName, 'email': req.body.email, 'username': req.body.username, 'password': user.password};
-            User.update({ _id: _id}, {$set: update}, function(err, result) {
+            User.updateOne({ _id: _id}, {$set: update}, function(err, result) {
                 if (err) {
                     return res.status(400).json({ message: 'Unable to update Reviewers.' });
                 } else {

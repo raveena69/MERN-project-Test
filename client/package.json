@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
+  "homepage": "https://github.com/raveena69/MERN-project-Test.git",
   "dependencies": {
     "@ashvin27/react-datatable": "^1.5.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -31,7 +32,7 @@
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0"
   },
-  "scripts": {
+  "scripts": {  
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

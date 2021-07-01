@@ -29,7 +29,7 @@ router.post('/user-add', (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            return res.status(200).json({message: 'User added successfully. Refreshing data...'})
+                            return res.status(200).json({message: 'Admin added successfully. Refreshing data...'})
                         }).catch(err => console.log(err));
                 });
             });
@@ -48,7 +48,7 @@ router.post('/user-data', (req, res) => {
 router.post('/user-delete', (req, res) => {
     User.deleteOne({ _id: req.body._id}).then(user => {
         if (user) {
-            return res.status(200).json({message: 'User deleted successfully. Refreshing data...', success: true})
+            return res.status(200).json({message: 'Admin deleted successfully. Refreshing data...', success: true})
         }
     });
 });
@@ -70,15 +70,15 @@ router.post('/user-update', (req, res) => {
                 });
             }
             let update = {'name': req.body.name, 'email': req.body.email, 'password': user.password};
-            User.update({ _id: _id}, {$set: update}, function(err, result) {
+            User.updateOne({ _id: _id}, {$set: update}, function(err, result) {
                 if (err) {
-                    return res.status(400).json({ message: 'Unable to update user.' });
+                    return res.status(400).json({ message: 'Unable to update Admin.' });
                 } else {
-                    return res.status(200).json({ message: 'User updated successfully. Refreshing data...', success: true });
+                    return res.status(200).json({ message: 'Admin updated successfully. Refreshing data...', success: true });
                 }
             });
         } else {
-            return res.status(400).json({ message: 'Now user found to update.' });
+            return res.status(400).json({ message: 'Now Admin found to update.' });
         }
     });
 });

@@ -68,7 +68,7 @@ router.post('/user-update', (req, res) => {
                 });
             }
             let update = {'name': req.body.name, 'email': req.body.email, 'password': user.password, 'contactno': user.contactno};
-            User.update({ _id: _id}, {$set: update}, function(err, result) {
+            User.updateOne({ _id: _id}, {$set: update}, function(err, result) {
                 if (err) {
                     return res.status(400).json({ message: 'Unable to update user.' });
                 } else {

@@ -48,7 +48,7 @@ router.post('/user-update', (req, res) => {
     User.findOne({ _id }).then(user => {
         if (user) {
             let update = {'guestSpeaker': req.body.guestSpeaker, 'time': req.body.time, 'description': req.body.description, 'date': req.body.date};
-            User.update({ _id: _id}, {$set: update}, function(err, result) {
+            User.updateOne({ _id: _id}, {$set: update}, function(err, result) {
                 if (err) {
                     return res.status(400).json({ message: 'Unable to update Guest Speaker.' });
                 } else {

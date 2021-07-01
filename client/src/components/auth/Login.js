@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import NavBar from '../../NavBar';
+import '../../css/SignUpMain.css';
 
 class Login extends Component {
     constructor() {
@@ -48,11 +50,14 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
+            <div>
+                <NavBar />
             <div className="container">
-                <div className="row mt-5">
+                      <center><h1 className="mt-2 text-primary">Admin Login</h1></center>
+                {/* <div className="row mt-5"> */}
                     <div className="col-md-4 mx-auto mt-5 card shadow-lg">
-                        <div className="card-body p-1">
-                            <h2 className="text-center text-primary mt-3">Login</h2>
+                        {/* <div className="card-body p-1"> */}
+                            <h2 className="text-center text-primary mt-3">Please enter Admin login credentials</h2>
                             <form noValidate onSubmit={this.onSubmit} className="white">
                                 <label htmlFor="email">Email</label>
                                 <input
@@ -87,9 +92,44 @@ class Login extends Component {
                                     </button>
                                 </p>
                             </form>
+                        {/* </div> */}
+                    </div>
+                {/* </div> */}
+            </div>
+            {/*Footer Start*/}
+            <br/>
+            <br/>
+            <div id="footer">
+                    <div id="footer1">
+                    
+                        <div id="logo1"></div>
+
+                        <div id="facts">
+                            <div id="company-address">
+                                SLIIT,
+                                New Kandy Road,<br/>
+                                Malabe,<br/>
+                                Sri Lanka.<br/>
+
+                                +94 11 7544806<br/>
+                                info@icaf.lk<br/><br/>
+
+                                © 2021 International Conference on Application Frameworks [ICAF] . All Rights Reserved.
+                            </div>
+
+                            <div id="social">
+                                <a href="https://www.youtube.com/" target="_blank"><div id="youtube"></div></a>
+                                <a href="https://www.facebook.com/" target="_blank"><div id="facebook"></div></a>
+                                <a href="https://www.pinterest.com/" target="_blank"><div id="pinterest"></div></a>
+                                <a href="https://twitter.com/login?lang=en" target="_blank"><div id="twitter"></div></a>
+                                <a href="https://www.instagram.com" target="_blank"><div id="instagram"></div></a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
+            {/*Footer End*/}
             </div>
         );
     }

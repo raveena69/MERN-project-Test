@@ -37,7 +37,7 @@ router.post('/user-update', (req, res) => {
     ConferenceApprove.findOne({ _id }).then(user => {
         if (user) {
             let update = {'guestSpeaker': req.body.guestSpeaker, 'time': req.body.time, 'description': req.body.description, 'status': req.body.status, 'date': req.body.date};
-            ConferenceApprove.update({ _id: _id}, {$set: update}, function(err, result) {
+            ConferenceApprove.updateOne({ _id: _id}, {$set: update}, function(err, result) {
                 if (err) {
                     return res.status(400).json({ message: 'Unable to update Conference Approve Status.' });
                 } else {

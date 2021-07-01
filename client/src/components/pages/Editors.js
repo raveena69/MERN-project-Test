@@ -121,7 +121,7 @@ class Editor extends Component {
                 email: '',
                 username: '',
                 password: '',
-                password2: '',
+                // password2: '',
             }
         };
 

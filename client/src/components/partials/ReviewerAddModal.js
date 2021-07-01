@@ -19,7 +19,7 @@ class ReviewerAddModal extends React.Component {
             email: '',
             username: '',
             password: '',
-            password2: '',
+            // password2: '',
             errors: {},
         };
     }
@@ -53,7 +53,7 @@ class ReviewerAddModal extends React.Component {
             email: this.state.email,
             username: this.state.username,
             password: this.state.password,
-            password2: this.state.password2
+            // password2: this.state.password2
         };
         this.props.addUser(newUser, this.props.history);
     };
@@ -66,7 +66,7 @@ class ReviewerAddModal extends React.Component {
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h4 className="modal-title">Add Edietor</h4>
+                                <h4 className="modal-title">Add Reviewer</h4>
                                 <button type="button" className="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div className="modal-body">
@@ -95,14 +95,14 @@ class ReviewerAddModal extends React.Component {
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.lastname}
-                                                id="lastname"
+                                                value={this.state.lastName}
+                                                id="lastName"
                                                 type="text"
-                                                error={errors.lastname}
+                                                error={errors.lastName}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.lastname
+                                                    invalid: errors.lastName
                                                 })}/>
-                                            <span className="text-danger">{errors.lastname}</span>
+                                            <span className="text-danger">{errors.lastName}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
@@ -160,7 +160,7 @@ class ReviewerAddModal extends React.Component {
                                             <span className="text-danger">{errors.password}</span>
                                         </div>
                                     </div>
-                                    <div className="row mt-2">
+                                    {/* <div className="row mt-2">
                                         <div className="col-md-3">
                                             <label htmlFor="password2">Confirm Password</label>
                                         </div>
@@ -177,7 +177,7 @@ class ReviewerAddModal extends React.Component {
                                             />
                                             <span className="text-danger">{errors.password2}</span>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </form>
                             </div>
                             <div className="modal-footer">

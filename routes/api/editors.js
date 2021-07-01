@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const validateRegisterInput = require('../../validation/register');
+const validateRegisterInput = require('../../validation/AddReviewer');
 const validateUpdateUserInput = require('../../validation/updateEditor');
 const User = require('../../models/Editor');
 

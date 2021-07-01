@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
-    reviewerName: {
+    firstName: {
         type: String,
         required: true
     },
-    mobileNumber: {
-        type: Number,
+    lastName: {
+        type: String,
         required: true
     },
     email: {
         type: String,
         required: true
     },
-    userName: {
+    username: {
         type: String,
         required: true
     },
@@ -30,5 +30,6 @@ UserSchema.virtual('id').get(function(){
 UserSchema.set('toJSON', {
     virtuals: true
 });
+
 
 module.exports = Reviewer = mongoose.model("reviewer", UserSchema);
