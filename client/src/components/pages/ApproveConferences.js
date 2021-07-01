@@ -7,12 +7,11 @@ import ReactDatatable from '@ashvin27/react-datatable';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import axios from "axios";
-import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import EditorAddModal from "../partials/EditorAddModal";
-import EditorUpdateModal from "../partials/EditorUpdateModal";
+import ConferenceApproveAddModal from "../partials/ConferenceApproveAddModal";
+import ConferenceApproveUpdateModal from "../partials/ConferenceApproveUpdateModal";
 import { toast, ToastContainer} from "react-toastify";
 
-class Editor extends Component {
+class ApproveConferences extends Component {
 
     constructor(props) {
         super(props);
@@ -26,30 +25,37 @@ class Editor extends Component {
                 sortable: true,
             },
             {
-                key: "firstName",
-                text: "First Name",
-                className: "firstName",
+                key: "guestSpeaker",
+                text: "GuestSpeaker",
+                className: "guestSpeaker",
                 align: "left",
                 sortable: true,
             },
             {
-                key: "lastName",
-                text: "Last Name",
-                className: "lastName",
-                align: "left",
-                sortable: true,
-            },
-            {
-                key: "email",
-                text: "Email",
-                className: "email",
+                key: "time",
+                text: "Time",
+                className: "time",
                 align: "left",
                 sortable: true
             },
             {
-                key: "username",
-                text: "Username",
-                className: "username",
+                key: "description",
+                text: "Description",
+                className: "description",
+                align: "left",
+                sortable: true
+            },
+            {
+                key: "status",
+                text: "Status",
+                className: "status",
+                align: "left",
+                sortable: true
+            },
+            {
+                key: "date",
+                text: "Date",
+                className: "date",
                 align: "left",
                 sortable: true
             },
@@ -85,8 +91,8 @@ class Editor extends Component {
         this.config = {
             page_size: 10,
             length_menu: [ 10, 20, 50 ],
-            filename: "Editors",
-            no_data_text: 'No editor found!',
+            filename: "Users",
+            no_data_text: 'No user found!',
             button: {
                 excel: true,
                 print: true,
@@ -116,12 +122,11 @@ class Editor extends Component {
         this.state = {
             currentRecord: {
                 id: '',
-                firstName: '',
-                lastName: '',
-                email: '',
-                username: '',
-                password: '',
-                password2: '',
+                guestSpeaker: '',
+                time: '',
+                description: '',
+                status: '',
+                date: '',
             }
         };
 
@@ -138,7 +143,16 @@ class Editor extends Component {
 
     getData() {
         axios
-            .post("/api/editors/user-data")
+            .post("/api/conferences/user-data")
+            .then(res => {
+                this.setState({ records: res.data})
+            })
+            .catch()
+    }
+    
+    getData() {
+        axios
+            .post("/api/conferences-approve/user-data")
             .then(res => {
                 this.setState({ records: res.data})
             })
@@ -151,7 +165,7 @@ class Editor extends Component {
 
     deleteRecord(record) {
         axios
-            .post("/api/editors/user-delete", {_id: record._id})
+            .post("/api/conferences/user-delete", {_id: record._id})
             .then(res => {
                 if (res.status === 200) {
                    toast(res.data.message, {
@@ -173,13 +187,13 @@ class Editor extends Component {
                 <Navbar/>
                 <div className="d-flex" id="wrapper">
                     <Sidebar/>
-                    <EditorAddModal/>
-                    <EditorUpdateModal record={this.state.currentRecord}/>
+                    <ConferenceApproveAddModal/>
+                    <ConferenceApproveUpdateModal record={this.state.currentRecord}/>
                     <div id="page-content-wrapper">
                         <div className="container-fluid">
                             <button className="btn btn-link mt-3" id="menu-toggle"><FontAwesomeIcon icon={faList}/></button>
-                            <button className="btn btn-outline-primary float-right mt-3 mr-2" data-toggle="modal" data-target="#add-user-modal"><FontAwesomeIcon icon={faPlus}/> Add Editor</button>
-                            <h1 className="mt-2 text-primary">Editors List</h1>
+                            {/* <button className="btn btn-outline-primary float-right mt-3 mr-2" data-toggle="modal" data-target="#add-user-modal"><FontAwesomeIcon icon={faPlus}/> Add Conferences Details [Approve/ Reject]</button> */}
+                            <h1 className="mt-2 text-primary">Approve Status of the Conferences</h1>
                             <ReactDatatable
                                 config={this.config}
                                 records={this.state.records}
@@ -196,7 +210,7 @@ class Editor extends Component {
 
 }
 
-Editor.propTypes = {
+ApproveConferences.propTypes = {
     auth: PropTypes.object.isRequired,
 };
 
@@ -207,4 +221,4 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps
-)(Editor);
+)(ApproveConferences);

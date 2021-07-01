@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const validateRegisterInput = require('../../validation/register');
-const validateUpdateUserInput = require('../../validation/updateEditor');
+const validateUpdateUserInput = require('../../validation/updateReviewer');
 const User = require('../../models/Reviewer');
 
 router.post('/user-add', (req, res) => {
@@ -15,10 +15,10 @@ router.post('/user-add', (req, res) => {
             return res.status(400).json({ email: 'Email already exists' });
         } else {
             const newUser = new User({
-                reviewerName: req.body.reviewerName,
-                mobileNumber: req.body.mobileNumber,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
                 email: req.body.email,
-                userName: req.body.userName,
+                username: req.body.username,
                 password: req.body.password
             });
             bcrypt.genSalt(10, (err, salt) => {
@@ -68,16 +68,16 @@ router.post('/user-update', (req, res) => {
                     });
                 });
             }
-            let update = {'reviewerName': req.body.reviewerName, 'mobileNumber': req.body.mobileNumber, 'email': req.body.email, 'userName': req.body.userName, 'password': user.password};
+            let update = {'firstName': req.body.firstName, 'lastName': req.body.lastName, 'email': req.body.email, 'username': req.body.username, 'password': user.password};
             User.update({ _id: _id}, {$set: update}, function(err, result) {
                 if (err) {
-                    return res.status(400).json({ message: 'Unable to update reviewers.' });
+                    return res.status(400).json({ message: 'Unable to update Reviewers.' });
                 } else {
                     return res.status(200).json({ message: 'Reviewer updated successfully. Refreshing data...', success: true });
                 }
             });
         } else {
-            return res.status(400).json({ message: 'Now reviewer found to update.' });
+            return res.status(400).json({ message: 'Now Reviewer found to update.' });
         }
     });
 });

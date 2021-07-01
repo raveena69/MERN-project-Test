@@ -8,6 +8,7 @@ const editors = require('./routes/api/editors');
 const reviewers = require('./routes/api/reviewers');
 const researchers = require('./routes/api/researchers');
 const conferences = require('./routes/api/conferences');
+const conferencesApprove = require('./routes/api/conferencesApprove');
 
 require('./config/passport')(passport);
 
@@ -44,6 +45,7 @@ app.use('/api/editors', editors);
 app.use('/api/reviewers', reviewers);
 app.use('/api/researchers', researchers);
 app.use('/api/conferences', conferences);
+app.use('/api/conferences-approve', conferencesApprove);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 

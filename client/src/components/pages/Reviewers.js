@@ -12,7 +12,7 @@ import ReviewerAddModal from "../partials/ReviewerAddModal";
 import ReviewerUpdateModal from "../partials/ReviewerUpdateModal";
 import { toast, ToastContainer} from "react-toastify";
 
-class Users extends Component {
+class Reviewer extends Component {
 
     constructor(props) {
         super(props);
@@ -26,16 +26,16 @@ class Users extends Component {
                 sortable: true,
             },
             {
-                key: "reviewerName",
-                text: "Reviewer Name",
-                className: "reviewerName",
+                key: "firstName",
+                text: "First Name",
+                className: "firstName",
                 align: "left",
                 sortable: true,
             },
             {
-                key: "mobailNumber",
-                text: "Mobail Number",
-                className: "mobailNumber",
+                key: "lastName",
+                text: "Last Name",
+                className: "lastName",
                 align: "left",
                 sortable: true,
             },
@@ -47,9 +47,9 @@ class Users extends Component {
                 sortable: true
             },
             {
-                key: "userName",
+                key: "username",
                 text: "Username",
-                className: "userName",
+                className: "username",
                 align: "left",
                 sortable: true
             },
@@ -116,10 +116,10 @@ class Users extends Component {
         this.state = {
             currentRecord: {
                 id: '',
-                reviewerName: '',
-                mobailNumber: '',
+                firstName: '',
+                lastName: '',
                 email: '',
-                userName: '',
+                username: '',
                 password: '',
                 password2: '',
             }
@@ -196,7 +196,7 @@ class Users extends Component {
 
 }
 
-Users.propTypes = {
+Reviewer.propTypes = {
     auth: PropTypes.object.isRequired,
 };
 
@@ -207,4 +207,4 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps
-)(Users);
+)(Reviewer);

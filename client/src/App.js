@@ -27,6 +27,7 @@ import Editors from "./components/pages/Editors";
 import Reviewer from "./components/pages/Reviewers";
 import Reseacher from "./components/pages/Researchers";
 import Conference from "./components/pages/Conferences";
+import ApproveConference from "./components/pages/ApproveConferences";
 
 if (localStorage.jwtToken) {
     const token = localStorage.jwtToken;
@@ -68,6 +69,7 @@ class App extends Component {
                                 <PrivateRoute exact path="/reviewers" component={Reviewer} />
                                 <PrivateRoute exact path="/reseachers" component={Reseacher} />
                                 <PrivateRoute exact path="/conferences" component={Conference} />
+                                <PrivateRoute exact path="/approveConferences" component={ApproveConference} />
                             </Switch>
                             <Route exact path="*" component={NotFound} />
                         </Switch>

@@ -26,8 +26,10 @@ class ConferenceUpdateModal extends React.Component {
         if (nextProps.record) {
             this.setState({
                 id: nextProps.record.id,
-                name: nextProps.record.name,
-                email: nextProps.record.email,
+                guestSpeaker: nextProps.record.guestSpeaker,
+                time: nextProps.record.time,
+                description: nextProps.record.description,
+                date: nextProps.record.date,
             })
         }
         if (nextProps.errors) {

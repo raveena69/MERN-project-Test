@@ -116,10 +116,10 @@ class Conferences extends Component {
         this.state = {
             currentRecord: {
                 id: '',
-                name: '',
-                email: '',
-                password: '',
-                password2: '',
+                guestSpeaker: '',
+                time: '',
+                description: '',
+                date: '',
             }
         };
 

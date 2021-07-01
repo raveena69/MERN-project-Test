@@ -14,10 +14,10 @@ class ReviewerAddModal extends React.Component {
     constructor() {
         super();
         this.state = {
-            reviewerName: '',
-            mobileNumber: '',
+            firstName: '',
+            lastName: '',
             email: '',
-            userName: '',
+            username: '',
             password: '',
             password2: '',
             errors: {},
@@ -48,10 +48,10 @@ class ReviewerAddModal extends React.Component {
     onUserAdd = e => {
         e.preventDefault();
         const newUser = {
-            reviewerName: this.state.reviewerName,
-            mobileNumber: this.state.mobileNumber,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             email: this.state.email,
-            userName: this.state.userName,
+            username: this.state.username,
             password: this.state.password,
             password2: this.state.password2
         };
@@ -66,43 +66,43 @@ class ReviewerAddModal extends React.Component {
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h4 className="modal-title">Add Reviewer</h4>
+                                <h4 className="modal-title">Add Edietor</h4>
                                 <button type="button" className="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div className="modal-body">
                                 <form noValidate onSubmit={this.onUserAdd} id="add-user">
                                     <div className="row mt-2">
                                         <div className="col-md-3">
-                                            <label htmlFor="reviewerName">Reviewer Name</label>
+                                            <label htmlFor="firstName">First Name</label>
                                         </div>
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.reviewerName}
-                                                id="reviewerName"
+                                                value={this.state.firstName}
+                                                id="firstName"
                                                 type="text"
-                                                error={errors.reviewerName}
+                                                error={errors.firstName}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.reviewerName
+                                                    invalid: errors.firstName
                                                 })}/>
-                                            <span className="text-danger">{errors.reviewerName}</span>
+                                            <span className="text-danger">{errors.firstName}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
                                         <div className="col-md-3">
-                                            <label htmlFor="mobileNumber">Mobail Number</label>
+                                            <label htmlFor="lastName">Last Name</label>
                                         </div>
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.mobileNumber}
-                                                id="mobileNumber"
+                                                value={this.state.lastname}
+                                                id="lastname"
                                                 type="text"
-                                                error={errors.mobileNumber}
+                                                error={errors.lastname}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.mobileNumber
+                                                    invalid: errors.lastname
                                                 })}/>
-                                            <span className="text-danger">{errors.mobileNumber}</span>
+                                            <span className="text-danger">{errors.lastname}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
@@ -125,20 +125,20 @@ class ReviewerAddModal extends React.Component {
                                     </div>
                                     <div className="row mt-2">
                                         <div className="col-md-3">
-                                            <label htmlFor="userName">Username</label>
+                                            <label htmlFor="username">Username</label>
                                         </div>
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.userName}
-                                                error={errors.userName}
-                                                id="userName"
+                                                value={this.state.username}
+                                                error={errors.username}
+                                                id="username"
                                                 type="text"
                                                 className={classnames("form-control", {
-                                                    invalid: errors.userName
+                                                    invalid: errors.username
                                                 })}
                                             />
-                                            <span className="text-danger">{errors.userName}</span>
+                                            <span className="text-danger">{errors.username}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">

@@ -17,7 +17,7 @@ router.post('/user-add', (req, res) => {
                     newUser.
                         save().
                             then(user => {
-                            return res.status(200).json({message: 'User added successfully. Refreshing data...'})
+                            return res.status(200).json({message: 'Guest Speaker added successfully. Refreshing data...'})
                         }).catch(err => console.log(err));
         }
     });

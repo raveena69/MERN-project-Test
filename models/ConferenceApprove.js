@@ -14,7 +14,8 @@ const UserSchema = new Schema({
         required: true
     },
     status: {
-        type: String
+        type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -30,4 +31,4 @@ UserSchema.set('toJSON', {
     virtuals: true
 });
 
-module.exports = Conference = mongoose.model("conference", UserSchema);
+module.exports = ConferenceApprove = mongoose.model("conferenceApprove", UserSchema);

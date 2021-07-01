@@ -6,6 +6,7 @@ const Editor = mongoose.model("editor");
 const Reviewer = mongoose.model("reviewer");
 const Researcher = mongoose.model("researcher");
 const Conference = mongoose.model("conference");
+const ConferenceApprove = mongoose.model("conferenceApprove");
 const keys = require("../config/keys");
 
 const opts = {};
@@ -87,3 +88,19 @@ module.exports = passport => {
         })
     );
 };
+
+module.exports = passport => {
+    passport.use(
+        new JwtStrategy(opts, (jwt_payload, done) => {
+            ConferenceApprove.findById(jwt_payload.id)
+                .then(user => {
+                    if (user) {
+                        return done(null, user);
+                    }
+                    return done(null, false);
+                })
+                .catch(err => console.log(err));
+        })
+    );
+};
+

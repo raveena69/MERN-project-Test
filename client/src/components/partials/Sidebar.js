@@ -24,7 +24,7 @@ class Sidebar extends Component {
                     <Link to="/reviewers" className="list-group-item list-group-item-action">Reviewers</Link>
                     <Link to="/reseachers" className="list-group-item list-group-item-action">Reseachers</Link>
                     <Link to="/conferences" className="list-group-item list-group-item-action">Conference Details Page</Link>
-                    <Link to="/events" className="list-group-item list-group-item-action">Approve Page</Link>
+                    <Link to="/approveConferences" className="list-group-item list-group-item-action">Conferences Approve Page</Link>
                     <button className="list-group-item list-group-item-action" onClick={this.onLogoutClick}>Logout <FontAwesomeIcon icon={faSignOutAlt} /></button>
                 </div>
             </div>
